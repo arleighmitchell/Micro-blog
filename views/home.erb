@@ -1,0 +1,22 @@
+<% if current_user %>
+<h1>Welcome <%= current_user.first_name %>!</h1>
+<% else %>
+<h1>This is the home page </h1>
+
+<% end %>
+
+  <% @posts.each do |post| %>
+  	<%= post.user.first_name %>: <%= post.body %>
+  	<br>
+  	<br>
+  <% end %>
+
+<form action="/create-post" method="post">
+	<label for="username">Username</label>
+	<input type="text" name="username">
+
+	<label for="body">Message</label>
+	<textarea rows="10" type="textarea" name="body"></textarea>
+
+	<button type="submit">Create Post</button>
+</form>
