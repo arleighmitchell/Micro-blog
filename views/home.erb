@@ -10,7 +10,7 @@
   	<br>
   	<br>
   <% end %>
-
+<% if current_user %>
 <form action="/create-post" method="post">
 	<label for="username">Username</label>
 	<input type="text" name="username">
@@ -20,3 +20,4 @@
 
 	<button type="submit">Create Post</button>
 </form>
+<% end %>

@@ -30,11 +30,16 @@ post '/sign-in' do
 
 	if user.password == params[:password]
 		session[:user_id] = user.id
-		redirect '/'
+		redirect '/profile'
 	else
 		redirect '/login-failed'
 	end
 end
+
+get '/login-failed' do
+	erb :failed_login
+end
+
 get "/sign-in" do
 	erb :sign_in
 end
@@ -62,11 +67,6 @@ get '/sign-up' do
 	erb :sign_up
 end
 
-get '/posts/:id' do
-	@user = User.find(params[:id])
-	erb :posts
-end
-
 post '/create-post' do
 	p params.inspect
 
@@ -78,4 +78,8 @@ post '/create-post' do
 					)
 
 	redirect '/'
+end
+
+get '/profile' do 
+	erb :profile
 end
