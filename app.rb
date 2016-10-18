@@ -13,7 +13,7 @@ end
 
 get '/' do
   @users = User.all
-  @posts = Post.all
+  @posts = Post.all.reverse
 
   erb :home
 end
@@ -70,16 +70,19 @@ end
 post '/create-post' do
 	p params.inspect
 
-	user_id = User.where(username: params[:username]).first.id
+	user_id = User.find(session[:user_id]).id
+	title = params[:title]
 	body = params[:body]
 
 	Post.create(user_id: user_id,
+				title:   title,
 				body:    body
-					)
+				)
 
 	redirect '/'
 end
 
 get '/profile' do 
+	@user_posts = current_user.posts.all
 	erb :profile
 end

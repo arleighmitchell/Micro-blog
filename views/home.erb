@@ -5,15 +5,21 @@
 
 <% end %>
 
-  <% @posts.each do |post| %>
-  	<%= post.user.first_name %>: <%= post.body %>
-  	<br>
-  	<br>
-  <% end %>
+<% @posts.each do |post| %>
+	Posted By: <%= post.user.username %>
+	<br> 
+	Title: <%= post.title %>
+	<br> 
+	Post: <%= post.body %>
+	<br>
+	<br>
+	<br>
+<% end %>
+
 <% if current_user %>
 <form action="/create-post" method="post">
-	<label for="username">Username</label>
-	<input type="text" name="username">
+	<label for="title">Title</label>
+	<input type="text" name="title">
 
 	<label for="body">Message</label>
 	<textarea rows="10" type="textarea" name="body"></textarea>
