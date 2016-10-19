@@ -1,10 +1,18 @@
 <h1>sup bitches</h1>
 <h1><%= current_user.first_name %>Homepage</h1>
 
-  <% @user_posts.each do |post| %>
-  	Title: <%= post.title%>
-  	<br>
-  	Post: <%= post.body %>
-  	<br>
-  	<br>
-  <% end %>
+<h3>Your Information</h3>
+Name: <%= @user.first_name%> <%= @user.last_name%><br>
+Age: <%= @user.age%><br>
+Username: <%= @user.username%><br>
+Email: <%= @user.email%><br>
+Posts: <%= @user.posts.count%><br>
+
+<% @user_posts.each do |post| %>
+	<br>
+	Title: <%= post.title%>
+	<br>
+	Post: <%= post.body %>
+	<br>
+	<br>
+<% end %>	

@@ -6,7 +6,9 @@
       <a class="nav-link" href="/">Home</a>
     </li>
     <li class="nav-item">
+      <% unless current_user %>
       <a class="nav-link" href="/sign-up">Sign Up</a>
+      <% end %>
     </li>
     <li class="nav-item">
       <% unless current_user %>

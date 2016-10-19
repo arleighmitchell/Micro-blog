@@ -52,12 +52,14 @@ post '/sign-up' do
 	last_name = params[:last_name]
 	age = params[:age]
 	password = params[:password]
+	email = params[:email]
 
 	User.create(username:   username,
 				last_name:  last_name,
 				first_name: first_name,
 				age:        age,
-				password:   password
+				password:   password,
+				email:      email
 				)
 
 	redirect '/sign-in'
@@ -83,6 +85,12 @@ post '/create-post' do
 end
 
 get '/profile' do 
-	@user_posts = current_user.posts.all
+	@user_posts = current_user.posts.all.reverse
+	@user = current_user
 	erb :profile
+end
+
+get '/posts/:id' do
+	@post = Post.where(id: params[:id]).first
+	erb :posts
 end
