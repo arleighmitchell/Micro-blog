@@ -1,29 +1,31 @@
 <% if current_user %>
 <h1>Welcome <%= current_user.first_name %>!</h1>
 <% else %>
-<h1>This is the home page </h1>
-
+<h1>Welcome!</h1>
 <% end %>
+<h3>Here's What's on Everyone's Minds </h3>
 
-<% @posts.each do |post| %>
-	Posted By: <%= post.user.username %>
-	<br> 
-	Title: <%= post.title %>
-	<br> 
-	<a href="/posts/<%= post.id%>"> Post: </a><%= post.body %> 
-	<br>
-	<br>
-	<br>
-<% end %>
+<div class="posts">
+	<% @posts.each do |post| %>
+		Posted By: <%= post.user.username %>
+		<br> 
+		Title: <%= post.title %>
+		<br> 
+		<a href="/posts/<%= post.id%>"> Post: </a><%= post.body %> 
+		<br>
+		<br>
+		<br>
+	<% end %>
+</div>
 
 <% if current_user %>
-<form action="/create-post" method="post">
-	<label for="title">Title</label>
-	<input type="text" name="title">
+	<form action="/create-post" method="post">
+		<label for="title">Title</label>
+		<input type="text" name="title">
 
-	<label for="body">Message</label>
-	<textarea rows="10" type="textarea" name="body"></textarea>
+		<label for="body">Message</label>
+		<textarea rows="10" type="textarea" name="body"></textarea>
 
-	<button type="submit">Create Post</button>
-</form>
+		<button type="submit">Create Post</button>
+	</form>
 <% end %>
