@@ -17,6 +17,10 @@ Posts: <%= @user.posts.count%><br>
 	<br>
 	Post: <%= post.body %>
 	<br>
+	<form method="post" action="/delete-post">
+		<input type="hidden" name="id" value="<%= post.id %>">
+		<button type="submit">Delete Post</button>
+	</form>
 	<br>
 	<br>
 

@@ -116,3 +116,10 @@ end
 get '/edit' do
 	erb :edit_info
 end
+
+post '/delete-post' do
+	@post = Post.where(id: params[:id]).first
+	@post.destroy
+
+	redirect '/profile'
+end
