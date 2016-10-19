@@ -94,3 +94,25 @@ get '/posts/:id' do
 	@post = Post.where(id: params[:id]).first
 	erb :posts
 end
+
+post '/edit' do
+	p params
+
+	first_name = params[:first_name]
+	last_name = params[:last_name]
+	age = params[:age]
+	password = params[:password]
+	email = params[:email]
+
+	User.update(last_name:  last_name,
+				first_name: first_name,
+				age:        age,
+				password:   password,
+				email:      email
+				)
+	redirect '/profile'
+end
+
+get '/edit' do
+	erb :edit_info
+end
