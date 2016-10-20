@@ -1,11 +1,11 @@
-html {
+html, body {
 	background-color: indianred;
-	margin: 75px;
+	margin: 50px;
 }
 .posts {
 	border-style: solid;
-	border-width: 5px;
-	max-width: 400px;
-	max-height: 300px;
-	font-size: 15px;
+	border-width: 3px;
+	max-width: 500px;
+	font-size: 20px;
+	padding: 10px;
 }

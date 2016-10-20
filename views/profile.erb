@@ -1,23 +1,25 @@
 <h1><%= current_user.first_name %>'s Homepage</h1>
 
 <div class="user_information">
-	<h3>Your Information</h3>
-	Name: <%= @user.first_name%> <%= @user.last_name%><br>
-	Age: <%= @user.age%><br>
-	Username: <%= @user.username%><br>
-	Email: <%= @user.email%><br>
-	Posts: <%= @user.posts.count%><br>
-	<br>
-	<a href="/edit">Edit Info</a><br>
-	<br>
+	<div class="posts">
+		<h3>Your Information</h3>
+		<h4>Name:</h4> <%= @user.first_name%> <%= @user.last_name%><br>
+		<h4>Age:</h4> <%= @user.age%><br>
+		<h4>Username:</h4> <%= @user.username%><br>
+		<h4>Email:</h4> <%= @user.email%><br>
+		<h4>Number of Posts:</h4> <%= @user.posts.count%><br>
+		<br>
+		<a href="/edit">Edit Info</a><br>
+		<br>
+	</div>
 </div>
 
-<div class="posts">
+<div>
 	<% @user_posts.each do |post| %>
 		<div class="posts">
-			<h6>Title:</h6> <%= post.title%>
+			<h4>Title:</h4> <%= post.title%>
 			<br>
-			<h6>Post:</h6> <%= post.body %>
+			<h4>Post:</h4> <%= post.body %>
 			<br>
 			<form method="post" action="/delete-post">
 				
