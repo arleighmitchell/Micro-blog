@@ -14,19 +14,19 @@
 
 <div class="posts">
 	<% @user_posts.each do |post| %>
-		<br>
-		Title: <%= post.title%>
-		<br>
-		Post: <%= post.body %>
-		<br>
-		<form method="post" action="/delete-post">
-			
-			<input type="hidden" name="id" value="<%= post.id %>">
-			<button type="submit">Delete Post</button>
+		<div class="posts">
+			<h6>Title:</h6> <%= post.title%>
+			<br>
+			<h6>Post:</h6> <%= post.body %>
+			<br>
+			<form method="post" action="/delete-post">
+				
+				<input type="hidden" name="id" value="<%= post.id %>">
+				<button type="submit">Delete Post</button>
 
-		</form>
-		<br>
-		<br>
-
+			</form>
+		</div>
+			<br>
+			<br>
 	<% end %>	
 </div>

@@ -5,27 +5,30 @@
 <% end %>
 <h3>Here's What's on Everyone's Minds </h3>
 
-<div class="posts">
+<div>
 	<% @posts.each do |post| %>
-		Posted By: <%= post.user.username %>
+	<div class="posts">
+		<h6>Posted By:</h6> <%= post.user.username %>
 		<br> 
-		Title: <%= post.title %>
+		<h6>Title:</h6> <%= post.title %>
 		<br> 
-		<a href="/posts/<%= post.id%>"> Post: </a><%= post.body %> 
-		<br>
+		<a href="/posts/<%= post.id%>"><h6>Post:</h6> </a><%= post.body %> 
+	</div>
 		<br>
 		<br>
 	<% end %>
 </div>
 
-<% if current_user %>
-	<form action="/create-post" method="post">
-		<label for="title">Title</label>
-		<input type="text" name="title">
+<div class="create_post">
+	<% if current_user %>
+		<form action="/create-post" method="post">
+			<label for="title">Title</label>
+			<input type="text" name="title">
 
-		<label for="body">Message</label>
-		<textarea rows="10" type="textarea" name="body"></textarea>
+			<label for="body">Message</label>
+			<textarea rows="10" type="textarea" name="body"></textarea>
 
-		<button type="submit">Create Post</button>
-	</form>
-<% end %>
+			<button type="submit">Create Post</button>
+		</form>
+	<% end %>
+</div>
