@@ -8,11 +8,11 @@
 <div>
 	<% @posts.each do |post| %>
 	<div class="posts">
-		<h6>Posted By:</h6> <%= post.user.username %>
+		<h4>Posted By:</h4> <%= post.user.username %>
 		<br> 
-		<h6>Title:</h6> <%= post.title %>
+		<h4>Title:</h4> <%= post.title %>
 		<br> 
-		<a href="/posts/<%= post.id%>"><h6>Post:</h6> </a><%= post.body %> 
+		<a href="/posts/<%= post.id%>"><h4>Post:</h4> </a><%= post.body %> 
 	</div>
 		<br>
 		<br>
